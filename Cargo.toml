@@ -14,10 +14,10 @@ https://www.kernel.org/doc/Documentation/i2c/dev-interface
 """
 
 [dependencies]
-libc = "*"
+libc = "^0.2"
 bitflags = "*"
 byteorder = "*"
-nix = "^0.4"
+nix = { git = "https://github.com/marjakm/nix-rust.git" }
 
 [dev-dependencies]
 docopt = "*"
