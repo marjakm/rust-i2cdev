@@ -50,6 +50,12 @@ impl From<LinuxI2CError> for io::Error {
                     nix::Error::Sys(e) => io::Error::from_raw_os_error(e as i32),
                     nix::Error::InvalidPath => {
                         io::Error::new(io::ErrorKind::InvalidInput, format!("{:?}", e))
+                    },
+                    nix::Error::InvalidUtf8 => {
+                        io::Error::new(io::ErrorKind::Other, format!("{:?}", e))
+                    },
+                    nix::Error::UnsupportedOperation => {
+                        io::Error::new(io::ErrorKind::Other, format!("{:?}", e))
                     }
                 }
             }
